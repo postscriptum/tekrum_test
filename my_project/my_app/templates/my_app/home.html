@@ -1,0 +1,59 @@
+{% extends "./base.html" %}
+
+{% block content %}
+<div id="main">
+    <a href="{% url 'purchase-create' %}"><button>Create purchase</button></a>
+    <table>
+    <tr><th>Date</th><th>Products</th><th>Total</th></tr>
+    {% verbatim %}
+        <tr v-for="purchase in purchases">
+            <td>{{ purchase.time }}</td>
+            <td><ul>
+                <li v-for="product in purchase.product_names">
+                    {{ product }}
+                </li>
+            </ul></td>
+            <td>{{ purchase.total }}</td>
+            <td><a v-bind:href="purchase.url">Edit</a></td>
+            <td><button v-on:click="delPurchase(purchase.id)">Delete</button></td>
+        </tr>
+    {% endverbatim %}
+    </table>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: "#main",
+        data: {
+            purchases: []
+        },
+        methods: {
+            delPurchase: function(purchase_id) {
+                $.ajax({
+                    method: "DELETE",
+                    url: "/purchases/" + purchase_id + "/",
+                    success: function() {
+                        // front-end delete
+                        for (var i=0; i<vm.purchases.length; i++) {
+                            if (vm.purchases[i].id == purchase_id) {
+                                vm.purchases.splice(i, 1);
+                                break;
+                            }
+                        }
+                    }
+                });
+            }
+        },
+        created: function() {
+            $.ajax({
+                method: "GET",
+                url: "/purchases/",
+                dataType: "json",
+                success: function(data) {
+                    vm.purchases = data;
+                }
+            });
+        }
+    })
+</script>
+{% endblock %}
