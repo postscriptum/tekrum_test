@@ -6,7 +6,8 @@
 <form action="{% url 'purchase-detail' pk=purchase.pk %}" method="POST">
     {% csrf_token %}
     {% render_form serializer %}
-    <input type="submit" value="Update">
+    <input type="submit" value="Update" class="big_btn">
+    <a href="{% url 'home' %}">Cancel</a>
 </form>
 {% endif %}
 {% endblock %}
