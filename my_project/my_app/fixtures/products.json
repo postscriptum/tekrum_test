@@ -1,0 +1,42 @@
+[
+{
+    "model": "my_app.product",
+    "pk": 1,
+    "fields": {
+        "name": "Bread",
+        "price": "12.00"
+    }
+},
+{
+    "model": "my_app.product",
+    "pk": 2,
+    "fields": {
+        "name": "Milk",
+        "price": "20.00"
+    }
+},
+{
+    "model": "my_app.product",
+    "pk": 3,
+    "fields": {
+        "name": "Butter",
+        "price": "25.50"
+    }
+},
+{
+    "model": "my_app.product",
+    "pk": 4,
+    "fields": {
+        "name": "Meat",
+        "price": "130.00"
+    }
+},
+{
+    "model": "my_app.product",
+    "pk": 5,
+    "fields": {
+        "name": "Cheese",
+        "price": "105.00"
+    }
+}
+]

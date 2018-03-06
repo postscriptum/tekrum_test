@@ -25,7 +25,7 @@ SECRET_KEY = '46392hnd$mg%0@p$8cf1gvg4uz%$l@eq_@drqt*su)bb$f!qn+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['postscriptum-tekrum-test.herokuapp.com']
+ALLOWED_HOSTS = ['postscriptum-tekrum-test.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
